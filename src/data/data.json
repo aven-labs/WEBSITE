@@ -1,0 +1,23 @@
+{
+  "navbar": {
+    "brand": "Aven",
+    "tagline": "Decentralized Agents across your platforms"
+  },
+  "hero": {
+    "title": {
+      "main": "Your Assistant",
+      "sub": "in Your Devices"
+    },
+    "buttons": {
+      "primary": "Get Early Access",
+      "secondary": "Aven Hub"
+    },
+    "navigation": [
+      { "title": "What is Aven?", "href": "#what-is-aven" },
+      { "title": "Why Aven?", "href": "#why-aven" },
+      { "title": "Is It Secure?", "href": "#is-it-secure" },
+      { "title": "Pricing?", "href": "#pricing" }
+    ]
+  }
+}
+
