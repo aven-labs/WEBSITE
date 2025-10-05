@@ -15,7 +15,7 @@ function LandingPage() {
       <Hero />
 
       <Intro />
-      {/* <WhatIsAven /> */}
+      <WhatIsAven />
       {/* <WhyAven /> */}
       {/* <IsItSecure /> */}
       {/* <Pricing /> */}

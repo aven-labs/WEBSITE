@@ -1,4 +1,6 @@
 import MusicPlayer from "../components/landing/Intro/MusicPlayer";
+import PhotoTransfer from "../components/landing/Intro/PhotoTransfer";
+import MarketingCampaign from "../components/landing/Intro/MarketingCampaign";
 
 export interface StoryStep {
   request: {
@@ -27,12 +29,12 @@ export const storySteps: StoryStep[] = [
   {
     request: {
       text: "Aven, Play the song I played last night",
-      position: { x: 15, y: 20 },
+      position: { x: 5, y: 20 },
     },
     responses: [
       {
         text: "Playing song",
-        position: { x: 75, y: 25 },
+        position: { x: 75, y: 5 },
         Component: MusicPlayer,
         curvature: {
           cp1Offset: 0.3,
@@ -45,12 +47,13 @@ export const storySteps: StoryStep[] = [
   {
     request: {
       text: "Send me all the weekend photos from my phone to my laptop",
-      position: { x: 20, y: 40 },
+      position: { x: 5, y: 40 },
     },
     responses: [
       {
         text: "Sending Photos",
-        position: { x: 80, y: 45 },
+        position: { x: 80, y: 60 },
+        Component: PhotoTransfer,
         curvature: {
           cp1Offset: 0.25,
           cp2Offset: 0.75,
@@ -66,30 +69,13 @@ export const storySteps: StoryStep[] = [
     },
     responses: [
       {
-        text: "Connected with Marketing MCP Server",
-        position: { x: 70, y: 55 },
-        curvature: {
-          cp1Offset: 0.2,
-          cp2Offset: 0.8,
-          curveAmount: 0.1,
-        },
-      },
-      {
-        text: "Connected with Marketing Agent",
-        position: { x: 70, y: 65 },
-        curvature: {
-          cp1Offset: 0.3,
-          cp2Offset: 0.7,
-          curveAmount: 0.15,
-        },
-      },
-      {
-        text: "Connected with Marketing Agent from @buildinpublic",
-        position: { x: 70, y: 75 },
+        text: "Automating Marketing Campaign",
+        position: { x: 58.5, y: 75 },
+        Component: MarketingCampaign,
         curvature: {
           cp1Offset: 0.25,
           cp2Offset: 0.75,
-          curveAmount: 0.2,
+          curveAmount: 0.15,
         },
       },
     ],

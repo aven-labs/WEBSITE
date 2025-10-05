@@ -7,58 +7,80 @@ import { storySteps } from "@/data/intro-story";
 
 function Intro() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [visibleResponses, setVisibleResponses] = useState<number[]>([]);
-  const [showDoodleLine, setShowDoodleLine] = useState(false);
-  const [requestCardDimensions, setRequestCardDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
+  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
+  const [visibleResponses, setVisibleResponses] = useState<
+    Record<number, number[]>
+  >({});
+  const [showDoodleLines, setShowDoodleLines] = useState<
+    Record<number, boolean>
+  >({});
+  const [requestCardDimensions, setRequestCardDimensions] = useState<
+    Record<number, { width: number; height: number }>
+  >({});
   const [responseCardDimensions, setResponseCardDimensions] = useState<
-    Array<{ width: number; height: number }>
-  >([]);
-  const requestCardRef = useRef<HTMLDivElement>(null);
-  const responseCardRefs = useRef<Array<HTMLDivElement | null>>([]);
-
-  const currentStep = storySteps[currentStepIndex];
+    Record<number, Array<{ width: number; height: number }>>
+  >({});
+  const requestCardRefs = useRef<Record<number, HTMLDivElement | null>>({});
+  const responseCardRefs = useRef<
+    Record<number, Array<HTMLDivElement | null>>
+  >({});
 
   useEffect(() => {
-    // Reset when step changes
-    setVisibleResponses([]);
-    setShowDoodleLine(false);
-    
-    if (currentStep) {
-      // Step 1: Show request card (delay 0.2s - from CCard delay prop)
-      // Step 2: After request card animation completes, show doodle line
-      setTimeout(() => {
-        setShowDoodleLine(true);
-      }, 800); // 200ms delay + 600ms animation from request card
+    if (currentStepIndex >= storySteps.length) return;
 
-      // Step 3: After doodle line starts (1.5s animation), show responses one by one
-      currentStep.responses.forEach((_, index) => {
-        setTimeout(() => {
-          setVisibleResponses((prev) => [...prev, index]);
-        }, 1800 + index * 800); // Start after doodle + stagger each response
-      });
+    const currentStep = storySteps[currentStepIndex];
 
-      // Move to next step after all responses are shown
-      if (currentStepIndex < storySteps.length - 1) {
-        const totalDelay = 1800 + currentStep.responses.length * 800 + 2000;
-        setTimeout(() => {
-          setCurrentStepIndex((prev) => prev + 1);
-        }, totalDelay);
-      }
+    // Initialize response refs array for this step
+    if (!responseCardRefs.current[currentStepIndex]) {
+      responseCardRefs.current[currentStepIndex] = [];
     }
-  }, [currentStepIndex, currentStep]);
+
+    // Step 1: Show request card (delay 0.2s - from CCard delay prop)
+    // Step 2: After request card animation completes, show doodle line
+    setTimeout(() => {
+      setShowDoodleLines((prev) => ({ ...prev, [currentStepIndex]: true }));
+    }, 800); // 200ms delay + 600ms animation from request card
+
+    // Step 3: After doodle line starts (1.5s animation), show responses one by one
+    currentStep.responses.forEach((_, index) => {
+      setTimeout(() => {
+        setVisibleResponses((prev) => ({
+          ...prev,
+          [currentStepIndex]: [...(prev[currentStepIndex] || []), index],
+        }));
+      }, 1800 + index * 800); // Start after doodle + stagger each response
+    });
+
+    // Move to next step after all responses are shown (mark current as completed)
+    if (currentStepIndex < storySteps.length - 1) {
+      const totalDelay = 1800 + currentStep.responses.length * 800 + 2000;
+      setTimeout(() => {
+        setCompletedSteps((prev) => [...prev, currentStepIndex]);
+        setCurrentStepIndex((prev) => prev + 1);
+      }, totalDelay);
+    } else {
+      // Mark last step as completed
+      const totalDelay = 1800 + currentStep.responses.length * 800 + 2000;
+      setTimeout(() => {
+        setCompletedSteps((prev) => [...prev, currentStepIndex]);
+      }, totalDelay);
+    }
+  }, [currentStepIndex]);
 
   // Measure card dimensions after request card appears
   useEffect(() => {
+    if (currentStepIndex >= storySteps.length) return;
+
     const timer = setTimeout(() => {
-      // Update request card dimensions
-      if (requestCardRef.current) {
-        setRequestCardDimensions({
-          width: requestCardRef.current.scrollWidth,
-          height: requestCardRef.current.scrollHeight,
-        });
+      const ref = requestCardRefs.current[currentStepIndex];
+      if (ref) {
+        setRequestCardDimensions((prev) => ({
+          ...prev,
+          [currentStepIndex]: {
+            width: ref.scrollWidth,
+            height: ref.scrollHeight,
+          },
+        }));
       }
     }, 850); // After request card animation completes
 
@@ -67,38 +89,59 @@ function Intro() {
 
   // Measure response card dimensions as they appear
   useEffect(() => {
-    if (visibleResponses.length === 0) return;
+    const stepResponses = visibleResponses[currentStepIndex];
+    if (!stepResponses || stepResponses.length === 0) return;
 
     const timer = setTimeout(() => {
-      const newResponseDimensions = responseCardRefs.current.map((ref) => {
+      const refs = responseCardRefs.current[currentStepIndex] || [];
+      const newResponseDimensions = refs.map((ref) => {
         if (ref) {
           return { width: ref.scrollWidth, height: ref.scrollHeight };
         }
         return { width: 0, height: 0 };
       });
-      setResponseCardDimensions(newResponseDimensions);
+      setResponseCardDimensions((prev) => ({
+        ...prev,
+        [currentStepIndex]: newResponseDimensions,
+      }));
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [visibleResponses]);
+  }, [visibleResponses, currentStepIndex]);
 
   // Handle window resize
   useEffect(() => {
     const updateDimensions = () => {
-      if (requestCardRef.current) {
-        setRequestCardDimensions({
-          width: requestCardRef.current.scrollWidth,
-          height: requestCardRef.current.scrollHeight,
-        });
-      }
-
-      const newResponseDimensions = responseCardRefs.current.map((ref) => {
+      // Update all request card dimensions
+      Object.keys(requestCardRefs.current).forEach((stepIndexStr) => {
+        const stepIndex = parseInt(stepIndexStr);
+        const ref = requestCardRefs.current[stepIndex];
         if (ref) {
-          return { width: ref.scrollWidth, height: ref.scrollHeight };
+          setRequestCardDimensions((prev) => ({
+            ...prev,
+            [stepIndex]: {
+              width: ref.scrollWidth,
+              height: ref.scrollHeight,
+            },
+          }));
         }
-        return { width: 0, height: 0 };
       });
-      setResponseCardDimensions(newResponseDimensions);
+
+      // Update all response card dimensions
+      Object.keys(responseCardRefs.current).forEach((stepIndexStr) => {
+        const stepIndex = parseInt(stepIndexStr);
+        const refs = responseCardRefs.current[stepIndex] || [];
+        const newResponseDimensions = refs.map((ref) => {
+          if (ref) {
+            return { width: ref.scrollWidth, height: ref.scrollHeight };
+          }
+          return { width: 0, height: 0 };
+        });
+        setResponseCardDimensions((prev) => ({
+          ...prev,
+          [stepIndex]: newResponseDimensions,
+        }));
+      });
     };
 
     window.addEventListener("resize", updateDimensions);
@@ -107,7 +150,7 @@ function Intro() {
 
   return (
     <div
-      className="mb-24 border-t min-h-[90vh] relative flex justify-center items-center overflow-hidden
+      className="mb-24 border-t min-h-[90vh] relative flex justify-center items-center
             bg-gradient-to-b from-background/5 via-foreground/50 to-foreground"
     >
       <Image
@@ -118,54 +161,72 @@ function Intro() {
         height={5120}
       />
 
-      {currentStep && (
-        <>
-          {/* Request Card */}
-          <CCard
-            ref={requestCardRef}
-            key={`request-${currentStepIndex}`}
-            text={currentStep.request.text}
-            xPosition={currentStep.request.position.x}
-            yPosition={currentStep.request.position.y}
-            delay={0.2}
-          />
+      {/* Render all steps that have been started */}
+      {storySteps.map((step, stepIndex) => {
+        // Only render if this step has started (current or completed)
+        if (stepIndex > currentStepIndex) return null;
 
-          {/* Single Doodle Line - only to first response */}
-          {showDoodleLine && currentStep.responses.length > 0 && (
-            <DoodleLine
-              start={currentStep.request.position}
-              end={currentStep.responses[0].position}
-              isVisible={showDoodleLine}
-              delay={0}
-              cardWidth={requestCardDimensions.width}
-              cardHeight={requestCardDimensions.height}
-              targetCardWidth={responseCardDimensions[0]?.width || 300}
-              targetCardHeight={responseCardDimensions[0]?.height || 120}
-              curvature={currentStep.responses[0].curvature}
+        const stepResponses = visibleResponses[stepIndex] || [];
+        const showDoodle = showDoodleLines[stepIndex] || false;
+        const reqDims = requestCardDimensions[stepIndex] || {
+          width: 300,
+          height: 120,
+        };
+        const resDims = responseCardDimensions[stepIndex] || [];
+
+        return (
+          <div key={`step-${stepIndex}`}>
+            {/* Request Card */}
+            <CCard
+              ref={(el: HTMLDivElement | null) => {
+                requestCardRefs.current[stepIndex] = el;
+              }}
+              text={step.request.text}
+              xPosition={step.request.position.x}
+              yPosition={step.request.position.y}
+              delay={0.2}
             />
-          )}
 
-          {/* Response Cards */}
-          {currentStep.responses.map(({ ...response }, responseIndex) => {
-            if (!visibleResponses.includes(responseIndex)) return null;
-
-            return (
-              <CCard
-                key={`response-${currentStepIndex}-${responseIndex}`}
-                ref={(el: HTMLDivElement | null) => {
-                  responseCardRefs.current[responseIndex] = el;
-                }}
-                text={response.text}
-                xPosition={response.position.x}
-                yPosition={response.position.y}
-                delay={0.3}
-                isResponse={true}
-                Component={response.Component}
+            {/* Single Doodle Line - only to first response */}
+            {showDoodle && step.responses.length > 0 && (
+              <DoodleLine
+                start={step.request.position}
+                end={step.responses[0].position}
+                isVisible={showDoodle}
+                delay={0}
+                cardWidth={reqDims.width}
+                cardHeight={reqDims.height}
+                targetCardWidth={resDims[0]?.width || 300}
+                targetCardHeight={resDims[0]?.height || 120}
+                curvature={step.responses[0].curvature}
               />
-            );
-          })}
-        </>
-      )}
+            )}
+
+            {/* Response Cards */}
+            {step.responses.map((response, responseIndex) => {
+              if (!stepResponses.includes(responseIndex)) return null;
+
+              return (
+                <CCard
+                  key={`response-${stepIndex}-${responseIndex}`}
+                  ref={(el: HTMLDivElement | null) => {
+                    if (!responseCardRefs.current[stepIndex]) {
+                      responseCardRefs.current[stepIndex] = [];
+                    }
+                    responseCardRefs.current[stepIndex][responseIndex] = el;
+                  }}
+                  text={response.text}
+                  xPosition={response.position.x}
+                  yPosition={response.position.y}
+                  delay={0.3}
+                  isResponse={true}
+                  Component={response.Component}
+                />
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 }

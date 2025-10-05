@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { H1 } from "@/components/ui/typography";
+import { H1, Text, H4 } from "@/components/ui/typography";
 import data from "@/data/data.json";
 import { DotPattern } from "../ui/dot-pattern";
 import { cn } from "@/lib/utils";
@@ -10,17 +10,19 @@ const Hero = () => {
     <section className="flex py-24 items-center">
       <div className="container px-8 mx-auto">
         <div className="flex flex-col md:flex-row items-baseline-last justify-between gap-12">
-          <div className="md:w-1/2">
+          <div className="md:w-2/3">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
+              <H4 className="text-md uppercase text-secondary-foreground">Built in Community</H4>
               <H1 className="text-5xl md:!text-8xl leading-[1.2]">
                 {data.hero.title.main}
                 <br />
                 {data.hero.title.sub}
               </H1>
+              <Text className="w-3/4 mt-4">{data.hero.title.description}</Text>
             </motion.div>
 
             <motion.div
@@ -57,7 +59,7 @@ const Hero = () => {
                     className="group flex items-center gap-2 hover:text-primary transition-colors"
                   >
                     <motion.span
-                      className="h-[1px] w-8 bg-muted-foreground group-hover:bg-primary transition-colors"
+                      className="h-[1px] w-8 bg-border group-hover:bg-primary transition-colors"
                       whileHover={{ width: 40 }}
                     />
                     {item.title}

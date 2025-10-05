@@ -203,7 +203,7 @@ const DoodleLine: React.FC<DoodleLineProps> = ({
         width: "100%",
         height: "100%",
         pointerEvents: "none",
-        zIndex: 10,
+        zIndex: 1,
       }}
     >
       <svg

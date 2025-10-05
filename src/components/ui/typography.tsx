@@ -23,7 +23,7 @@ export const typographyVariants: Record<TypographyVariant, string> = {
   h3: 'scroll-m-20 text-2xl font-semibold',
   h4: 'scroll-m-20 text-xl font-semibold',
   h5: 'scroll-m-20 text-lg font-semibold',
-  p: '',
+  p: 'text-md',
   blockquote: 'mt-6 border-l-2 pl-6 italic',
   code: 'relative rounded bg-slate-100 px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
 }

@@ -84,12 +84,12 @@ export default function MusicPlayer({ isVisible = true }: MusicPlayerProps) {
       </div>
 
       <div
-        className="h-1 bg-background/10 rounded-full overflow-hidden cursor-pointer mb-2"
+        className="h-1 bg-foreground/10 rounded-full overflow-hidden cursor-pointer mb-2"
         onClick={handleProgressClick}
       >
         <div
           ref={progressRef}
-          className="h-full bg-background rounded-full w-0 transition-all duration-100"
+          className="h-full bg-foreground rounded-full w-0 transition-all duration-100"
         />
       </div>
 

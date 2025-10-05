@@ -1,12 +1,13 @@
 {
   "navbar": {
     "brand": "Aven",
-    "tagline": "Decentralized Agents across your platforms"
+    "link": "Developers Hub"
   },
   "hero": {
     "title": {
-      "main": "Your Assistant",
-      "sub": "in Your Devices"
+      "main": "Your Assitant",
+      "sub": "Your Terms",
+      "description": "Install Agents from trusted Aven hub on your device like you install Apps. \n No-one loves to give there data then why give them, store it on your device and give it on premise basis."
     },
     "buttons": {
       "primary": "Get Early Access",
@@ -20,4 +21,3 @@
     ]
   }
 }
-
