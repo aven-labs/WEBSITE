@@ -20,7 +20,7 @@ const ContactHero = () => {
           <Text className="text-lg max-w-2xl mx-auto text-muted mb-4">
             We know no one likes to fill forms, so just choose your way of
             communication and we&apos;ll come there, and if you&apos;re looking for job
-            Follow us on {" "}
+            follow us on {" "}
             <Link
               href="https://wellfound.com/company/aven-labs-1"
               target="_blank"
