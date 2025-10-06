@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { H1, Text, H4 } from "@/components/ui/typography";
 import data from "@/data/data.json";
-import { DotPattern } from "../ui/dot-pattern";
-import { cn } from "@/lib/utils";
+import { AccessButton, AccessHub } from "../Access";
 
 const Hero = () => {
   return (
@@ -16,7 +15,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <H4 className="text-md uppercase text-secondary-foreground">Built in Community</H4>
+              <H4 className="text-md uppercase text-secondary-foreground">
+                Built in Community
+              </H4>
               <H1 className="text-5xl md:!text-8xl leading-[1.2]">
                 {data.hero.title.main}
                 <br />
@@ -31,12 +32,8 @@ const Hero = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="flex flex-wrap gap-4 mt-8"
             >
-              <Button className="p-8 px-12 text-md" variant="magic" size="lg">
-                {data.hero.buttons.primary}
-              </Button>
-              <Button className="p-8 px-12 text-md" variant="default" size="lg">
-                {data.hero.buttons.secondary}
-              </Button>
+              <AccessButton />
+              <AccessHub />
             </motion.div>
           </div>
 

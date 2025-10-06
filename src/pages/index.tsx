@@ -1,12 +1,13 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Hero from "../components/landing/Hero";
 import Intro from "../components/landing/Intro";
 import WhatIsAven from "../components/landing/WhatIsAven";
-import WhyAven from "../components/landing/WhyAven";
+import AvenHub from "../components/landing/AvenHub";
 import IsItSecure from "../components/landing/IsItSecure";
 import Pricing from "../components/landing/Pricing";
+import Footer from "@/components/Footer";
+import Access from "@/components/Access";
 
 function LandingPage() {
   return (
@@ -16,11 +17,10 @@ function LandingPage() {
 
       <Intro />
       <WhatIsAven />
-      {/* <WhyAven /> */}
-      {/* <IsItSecure /> */}
-      {/* <Pricing /> */}
-
-      {/* <Footer /> */}
+      <IsItSecure />
+      <AvenHub />
+      <Access />
+      <Footer />
     </div>
   );
 }

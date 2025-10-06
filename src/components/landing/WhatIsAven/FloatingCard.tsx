@@ -20,7 +20,7 @@ function Card({ platform, centerLineRef, endTriggerRef }: CardProps) {
   const [triggerSuccess, setTriggerSuccess] = useState(false); // Trigger success when crossing center
   const [hasCrossedCenter, setHasCrossedCenter] = useState(false);
   const [hasResetAfterEnd, setHasResetAfterEnd] = useState(false);
-  const [randomY, setRandomY] = useState(() => Math.random() * 80 + 10); // Random Y position between 10% and 90%
+  const [randomY, setRandomY] = useState(() => Math.random() * 50 + 10); // Random Y position between 10% and 90%
   const cardRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(-200);
 
@@ -84,7 +84,7 @@ function Card({ platform, centerLineRef, endTriggerRef }: CardProps) {
         setHasResetAfterEnd(false);
         setTriggerSuccess(false); // Reset success trigger
         // Generate new random Y position for next cycle
-        setRandomY(Math.random() * 80 + 10);
+        setRandomY(Math.random() * 50 + 10);
       }
     });
 
@@ -98,7 +98,7 @@ function Card({ platform, centerLineRef, endTriggerRef }: CardProps) {
     centerLineRef,
     endTriggerRef,
   ]);
-
+  console.log(randomY);
   return (
     <motion.div
       ref={cardRef}
@@ -113,7 +113,7 @@ function Card({ platform, centerLineRef, endTriggerRef }: CardProps) {
         duration: 8,
         delay: platform.delay, // initial delay
         repeat: Infinity,
-        repeatDelay: platforms.length*2, // extra delay before repeating cycle
+        repeatDelay: platforms.length * 2.5, // extra delay before repeating cycle
         ease: "linear",
       }}
     >
@@ -135,17 +135,17 @@ function FloatingCard() {
   return (
     <div className="relative h-[60vh] mx-auto">
       {/* Subtle grid background */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
             linear-gradient(to right, var(--foreground) 1px, transparent 1px),
             linear-gradient(to bottom, var(--foreground) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px',
+          backgroundSize: "40px 40px",
         }}
       />
-      
+
       {/* Start Trigger line (left edge - invisible) */}
       <div
         ref={startTriggerRef}

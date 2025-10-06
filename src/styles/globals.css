@@ -8,24 +8,24 @@
 }
 
 :root {
-  --background: oklch(0.9521 0 0);       /* #EFEFEF */
-  --foreground: oklch(0 0 0);           /* #000000 */
-  --primary: oklch(0.6526 0.2332 34.19);  /* #FE3E01 */
-  --primary-foreground: oklch(0 0 0);   /* text color on primary */
-  --secondary: oklch(0.7444 0 0);        /* #ACACAC */
+  --background: oklch(0.9521 0 0); /* #EFEFEF */
+  --foreground: oklch(0 0 0); /* #000000 */
+  --primary: oklch(0.6526 0.2332 34.19); /* #FE3E01 */
+  --primary-foreground: oklch(0 0 0); /* text color on primary */
+  --secondary: oklch(0.7444 0 0); /* #ACACAC */
   --secondary-foreground: oklch(0 0 0);
-  --accent: oklch(0.8374 0.1715 83.89);   /* #FEBE03 */
+  --accent: oklch(0.8374 0.1715 83.89); /* #FEBE03 */
   --accent-foreground: oklch(0 0 0);
-  --muted: oklch(0.129 0 0);            /* #202020 */
-  --muted-foreground: oklch(0.927 0 0);
+  --muted: oklch(0.129 0 0); /* #202020 */
+  --muted-foreground: oklch(30.118% 0.00003 271.152);
   --card: var(--background);
   --card-foreground: var(--foreground);
   --popover: var(--background);
   --popover-foreground: var(--foreground);
   --destructive: oklch(0.577 0.245 27.325); /* keep previous */
-  --border: oklch(0.8 0 0);             /* light gray border */
+  --border: oklch(0.8 0 0); /* light gray border */
   --input: var(--border);
-  --ring: oklch(0.708 0 0);             /* keep as neutral */
+  --ring: oklch(0.708 0 0); /* keep as neutral */
   --chart-1: var(--primary);
   --chart-2: var(--secondary);
   --chart-3: var(--muted);
@@ -79,7 +79,6 @@ body {
   }
 }
 
-
 .img-hor {
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
@@ -92,4 +91,17 @@ body {
 ::selection {
   background-color: var(--border);
   color: #000;
+}
+
+.button-grad {
+  background: linear-gradient(45deg, #fe3e01 15%, #febe03);
+}
+
+
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+    display: none;  /* Older Safari and Chromium */
 }
