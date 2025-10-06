@@ -64,25 +64,25 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
   }, [stage]);
 
   return (
-    <div className="w-[320px] relative">
+    <div className="w-[200px] sm:w-[280px] md:w-[320px] relative">
       {/* Main Card */}
       <div
-        className={`relative bg-background/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-700 border`}
+        className={`relative bg-background/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 transition-all duration-700 border`}
       >
         {/* Icon and Status */}
-        <div className="flex items-start gap-4 mb-4">
+        <div className="flex items-start gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
           {/* Platform Icon */}
           <div
-            className={`p-3 rounded-xl transition-all duration-500 ${
+            className={`p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl transition-all duration-500 ${
               stage === "complete"
                 ? "bg-primary/20 ring-2 ring-primary/40"
                 : "bg-foreground/5"
             }`}
           >
             {Icon ? (
-              <Icon className="w-6 h-6 text-foreground" />
+              <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-foreground" />
             ) : (
-              <Monitor className="w-6 h-6 text-foreground" />
+              <Monitor className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-foreground" />
             )}
           </div>
 
@@ -97,8 +97,8 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
                   exit={{ opacity: 0, y: 10 }}
                   className="flex items-center gap-2"
                 >
-                  <Loader2 className="w-4 h-4 text-foreground/60 animate-spin" />
-                  <span className="text-sm font-medium text-foreground/80">
+                  <Loader2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-foreground/60 animate-spin" />
+                  <span className="text-xs sm:text-sm font-medium text-foreground/80">
                     Installing...
                   </span>
                 </motion.div>
@@ -111,8 +111,8 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
                   exit={{ opacity: 0, y: 10 }}
                   className="flex items-center gap-2"
                 >
-                  <Zap className="w-4 h-4 text-accent animate-pulse" />
-                  <span className="text-sm font-medium text-foreground/80">
+                  <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-accent animate-pulse" />
+                  <span className="text-xs sm:text-sm font-medium text-foreground/80">
                     Powering Up...
                   </span>
                 </motion.div>
@@ -124,8 +124,8 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex items-center gap-2"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-foreground">
+                  <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-primary" />
+                  <span className="text-xs sm:text-sm font-medium text-foreground">
                     Ready!
                   </span>
                 </motion.div>
@@ -135,14 +135,14 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
         </div>
 
         {/* Platform Name Transition */}
-        <div className="mb-4">
+        <div className="mb-2 sm:mb-3 md:mb-4">
           <AnimatePresence mode="wait">
             {stage !== "complete" ? (
               <motion.div
                 key="before"
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="text-foreground/60 text-sm"
+                className="text-foreground/60 text-xs sm:text-sm"
               >
                 {before}
               </motion.div>
@@ -152,7 +152,7 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className="text-sm font-medium text-foreground"
+                className="text-xs sm:text-sm font-medium text-foreground"
               >
                 {after}
               </motion.div>
@@ -162,8 +162,8 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
 
         {/* Progress Bar (only during installing) */}
         {stage === "installing" && (
-          <div className="mb-3">
-            <div className="h-1.5 bg-foreground/10 rounded-full overflow-hidden">
+          <div className="mb-2 sm:mb-3">
+            <div className="h-1 sm:h-1.5 bg-foreground/10 rounded-full overflow-hidden">
               <motion.div
                 className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
                 initial={{ width: "0%" }}
@@ -172,8 +172,8 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
               />
             </div>
             <div className="flex justify-between mt-1">
-              <span className="text-xs text-foreground/50">Installing</span>
-              <span className="text-xs text-foreground/50">
+              <span className="text-[10px] sm:text-xs text-foreground/50">Installing</span>
+              <span className="text-[10px] sm:text-xs text-foreground/50">
                 {Math.round(progress)}%
               </span>
             </div>
@@ -186,7 +186,7 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative h-1 mb-3"
+            className="relative h-0.5 sm:h-1 mb-2 sm:mb-3"
           >
             {/* Main line */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary animate-pulse rounded-full" />
@@ -209,7 +209,7 @@ const PlatformPowerUp: React.FC<PlatformPowerUpProps> = ({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-xs text-foreground/70 text-center"
+            className="text-[10px] sm:text-xs text-foreground/70 text-center"
           >
             System initialized and ready
           </motion.div>

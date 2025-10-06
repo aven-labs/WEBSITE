@@ -8,7 +8,7 @@ export const storySteps: StoryStep[] = [
     request: {
       text: "Aven, Play the song I played last night",
       position: {
-        default: { x: 5, y: 55 },
+        default: { x: 5, y: 50 },
         md: { x: 5, y: 20 },
         lg: { x: 5, y: 20 },
       },

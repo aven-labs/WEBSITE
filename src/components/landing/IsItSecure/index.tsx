@@ -12,7 +12,7 @@ const securityFeatures = [
 
 function IsItSecure() {
   return (
-    <div id="is-it-secure" className="px-8 py-36">
+    <div id="is-it-secure" className="px-8 py-12 md:py-36">
       <div className="container grid grid-cols-1 lg:grid-cols-3 gap-8 mx-auto">
         <motion.div
           className="space-y-6 col-span-1 lg:col-span-2"
@@ -29,7 +29,7 @@ function IsItSecure() {
         </motion.div>
 
         {/* Simple animated list */}
-        <div className="flex pt-4 gap-8 flex-col justify-center">
+        <div className="flex pt-4 gap-4 md:gap-8 flex-col justify-center">
           {securityFeatures.map((feature, index) => (
             <motion.div
               key={index}
@@ -45,7 +45,7 @@ function IsItSecure() {
             >
               <motion.div
                 className={cn(
-                  "flex border rounded-xl relative left- p-8 items-center"
+                  "flex border rounded-xl relative max-md:!left-0 p-4 md:p-8 items-center"
                 )}
                 style={{
                   left: `-${index * 100}px`,

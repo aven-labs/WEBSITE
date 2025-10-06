@@ -7,7 +7,7 @@ function DeployYourAgent() {
   return (
     <main>
       <Navbar />
-      <div className="grid min-h-screen place-content-center grid-cols-2 gap-32 container px-8 mx-auto">
+      <div className="grid min-h-screen place-content-center md:grid-cols-2 max-md:py-12 gap-32 container px-8 mx-auto">
         <DeployBanner />
         <DeployForm />
       </div>

@@ -15,6 +15,7 @@ interface AgentConnectProps {
   command?: string;
   agentName?: string;
   marketplace?: string;
+  direction?: "horizontal" | "vertical";
   onComplete?: () => void;
 }
 
@@ -22,6 +23,7 @@ const AgentConnect: React.FC<AgentConnectProps> = ({
   command = "Book an appointment with doctor",
   agentName = "Medical Scheduler Agent",
   marketplace = "Aven Marketplace",
+  direction = "horizontal",
   onComplete,
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -153,10 +155,10 @@ const AgentConnect: React.FC<AgentConnectProps> = ({
   };
 
   return (
-    <div ref={containerRef} className="relative py-20">
-      {/* Horizontal Steps Container */}
-      <div className="relative overflow-x-scroll w-screen scrollbar-hide">
-        <div className="flex items-center justify-center gap-6 px-8 min-w-max mx-auto">
+    <div ref={containerRef} className="relative">
+      {/* Steps Container - Horizontal or Vertical */}
+      <div className={`relative ${direction === "horizontal" ? "overflow-x-scroll w-screen scrollbar-hide" : ""}`}>
+        <div className={`flex ${direction === "vertical" ? "flex-col" : "items-center justify-center"} ${direction === "horizontal" ? "gap-6 px-8 min-w-max mx-auto" : "gap-4 px-4 max-w-md mx-auto"}`}>
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isActive = index === currentStep;
@@ -164,7 +166,7 @@ const AgentConnect: React.FC<AgentConnectProps> = ({
             const isMinimized = false; // Disabled minimizing
 
             return (
-              <div key={step.id} className="relative flex items-center">
+              <div key={step.id} className={`relative items-center flex ${direction === "vertical" ? "flex-col" : "items-center"}`}>
                 {/* Step Card */}
                 <motion.div
                   className={`relative backdrop-blur-sm rounded-2xl transition-all duration-500 border cursor-pointer flex-shrink-0 ${getCardStyle(
@@ -174,7 +176,7 @@ const AgentConnect: React.FC<AgentConnectProps> = ({
                   animate={{
                     opacity: hasStarted && index <= currentStep ? 1 : 0.3,
                     y: 0,
-                    width: isMinimized ? "120px" : "320px",
+                    width: isMinimized ? (direction === "vertical" ? "100%" : "120px") : (direction === "vertical" ? "100%" : "320px"),
                     padding: isMinimized ? "12px" : "20px",
                   }}
                   transition={{
@@ -397,20 +399,26 @@ const AgentConnect: React.FC<AgentConnectProps> = ({
                 {/* Connecting Line */}
                 {index < steps.length - 1 && (
                   <div
-                    className="relative flex items-center transition-all duration-300"
-                    style={{ width: isMinimized ? "32px" : "64px" }}
+                    className={`relative flex ${direction === "vertical" ? "flex-col items-center" : "items-center"} transition-all duration-300`}
+                    style={direction === "vertical" 
+                      ? { height: isMinimized ? "24px" : "48px", width: "2px" }
+                      : { width: isMinimized ? "32px" : "64px" }
+                    }
                   >
-                    <div className="w-full h-0.5 bg-foreground/10 relative">
+                    <div className={`${direction === "vertical" ? "h-full w-0.5" : "w-full h-0.5"} bg-foreground/10 relative`}>
                       {index < currentStep && (
                         <motion.div
-                          className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-primary to-accent"
-                          initial={{ width: 0 }}
-                          animate={{ width: "100%" }}
+                          className={`absolute ${direction === "vertical" ? "left-0 top-0 right-0" : "left-0 top-0 bottom-0"} bg-gradient-to-${direction === "vertical" ? "b" : "r"} from-primary to-accent`}
+                          initial={direction === "vertical" ? { height: 0 } : { width: 0 }}
+                          animate={direction === "vertical" ? { height: "100%" } : { width: "100%" }}
                           transition={{ duration: 0.6 }}
                         >
                           <div
-                            className="absolute inset-0 bg-gradient-to-r from-primary/60 to-accent/60 blur-sm"
-                            style={{ height: "4px", top: "-1.5px" }}
+                            className={`absolute inset-0 bg-gradient-to-${direction === "vertical" ? "b" : "r"} from-primary/60 to-accent/60 blur-sm`}
+                            style={direction === "vertical" 
+                              ? { width: "4px", left: "-1.5px" }
+                              : { height: "4px", top: "-1.5px" }
+                            }
                           />
                         </motion.div>
                       )}
@@ -418,11 +426,17 @@ const AgentConnect: React.FC<AgentConnectProps> = ({
                       {/* Data packet animation */}
                       {index === currentStep - 1 && currentStep > 0 && (
                         <motion.div
-                          className="absolute top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full shadow-lg shadow-primary/50"
-                          animate={{
-                            x: [0, isMinimized ? 32 : 64],
-                            opacity: [1, 0.5, 1],
-                          }}
+                          className={`absolute ${direction === "vertical" ? "left-1/2 -translate-x-1/2" : "top-1/2 -translate-y-1/2"} w-2 h-2 bg-primary rounded-full shadow-lg shadow-primary/50`}
+                          animate={direction === "vertical"
+                            ? {
+                                y: [0, isMinimized ? 24 : 48],
+                                opacity: [1, 0.5, 1],
+                              }
+                            : {
+                                x: [0, isMinimized ? 32 : 64],
+                                opacity: [1, 0.5, 1],
+                              }
+                          }
                           transition={{
                             duration: 1,
                             repeat: Infinity,

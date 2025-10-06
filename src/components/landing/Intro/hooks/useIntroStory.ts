@@ -1,13 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { storySteps } from "../data/intro-story";
 import type { ResponsivePosition, Position } from "@/components/landing/Intro/model/intro";
+import { useViewport } from "@/hooks/useViewport";
 
-// Utility function to get position based on viewport
-const getResponsivePosition = (responsivePos: ResponsivePosition): Position => {
-  if (typeof window === "undefined") return responsivePos.default;
-
-  const width = window.innerWidth;
-
+// Utility function to get position based on viewport width
+const getResponsivePosition = (responsivePos: ResponsivePosition, width: number): Position => {
   // lg breakpoint (1024px)
   if (width >= 1024 && responsivePos.lg) {
     return responsivePos.lg;
@@ -23,7 +20,7 @@ const getResponsivePosition = (responsivePos: ResponsivePosition): Position => {
 };
 
 export const useIntroStory = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const { isMobile, width } = useViewport();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [visibleResponses, setVisibleResponses] = useState<
@@ -55,31 +52,22 @@ export const useIntroStory = () => {
 
   // Update positions based on viewport
   useEffect(() => {
-    const updatePositions = () => {
-      const width = typeof window !== 'undefined' ? window.innerWidth : 1024;
-      setIsMobile(width < 640); // sm breakpoint
+    const newPositions: Record<
+      number,
+      { request: Position; responses: Position[] }
+    > = {};
 
-      const newPositions: Record<
-        number,
-        { request: Position; responses: Position[] }
-      > = {};
+    storySteps.forEach((step, index) => {
+      newPositions[index] = {
+        request: getResponsivePosition(step.request.position, width),
+        responses: step.responses.map((res) =>
+          getResponsivePosition(res.position, width)
+        ),
+      };
+    });
 
-      storySteps.forEach((step, index) => {
-        newPositions[index] = {
-          request: getResponsivePosition(step.request.position),
-          responses: step.responses.map((res) =>
-            getResponsivePosition(res.position)
-          ),
-        };
-      });
-
-      setPositions(newPositions);
-    };
-
-    updatePositions();
-    window.addEventListener("resize", updatePositions);
-    return () => window.removeEventListener("resize", updatePositions);
-  }, []);
+    setPositions(newPositions);
+  }, [width]);
 
   // Story step animation orchestration
   useEffect(() => {

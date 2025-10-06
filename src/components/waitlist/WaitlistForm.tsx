@@ -80,12 +80,12 @@ const WaitlistForm = () => {
   const genderValue = watch("gender");
 
   return (
-    <div className="container py-24 mx-auto px-8">
+    <div className="container py-6 md:py-24 mx-auto px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
-        className="max-w-2xl mx-auto"
+        className="md:max-w-2xl mx-auto"
       >
         <div className="text-center mb-12">
           <H4 className="text-md uppercase text-secondary-foreground mb-4">
@@ -101,7 +101,7 @@ const WaitlistForm = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="px-8"
+          className="md:px-8"
         >
           {submitted ? (
             <motion.div

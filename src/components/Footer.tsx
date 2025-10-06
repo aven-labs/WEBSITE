@@ -42,7 +42,7 @@ const socialLinks = [
 const Footer = () => {
   return (
     <FooterWrapper className="border-t">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8">
         <FooterContent>
           <FooterColumn>
             <h3 className="text-xl font-bold">Aven</h3>
@@ -51,7 +51,7 @@ const Footer = () => {
             </p>
           </FooterColumn>
           <FooterColumn />
-          <FooterColumn />
+          <FooterColumn className="hidden md:block" />
           {footerLinks.map((section) => (
             <FooterColumn key={section.title}>
               <h4 className="text-sm font-semibold">{section.title}</h4>

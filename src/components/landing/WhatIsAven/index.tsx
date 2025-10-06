@@ -4,7 +4,7 @@ import FloatingCard from "./FloatingCard";
 const WhatIsAven = () => {
   return (
     <section id="what-is-aven" className="py-6 md:py-24">
-      <div className="container mx-auto px-4">
+      <div className="container px-8 mx-auto">
         {/* Main Content */}
         <div className="md:text-center mb-16">
           <H4 className="mb-4">What is Aven?</H4>
