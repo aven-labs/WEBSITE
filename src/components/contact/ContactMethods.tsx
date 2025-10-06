@@ -5,7 +5,6 @@ import {
   MessageCircle,
   Mail,
   Calendar,
-  Github,
   Linkedin,
   Twitter,
   ArrowUpRight,

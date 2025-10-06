@@ -9,7 +9,7 @@ interface CCardProps {
   delay?: number;
   className?: string;
   isResponse?: boolean;
-  Component?: React.ComponentType<any>;
+  Component?: React.ComponentType<Record<string, unknown>>;
 }
 
 const CCard = React.forwardRef<HTMLDivElement, CCardProps>(

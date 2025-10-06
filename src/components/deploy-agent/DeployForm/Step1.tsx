@@ -12,7 +12,7 @@ interface Step1Props {
 const Step1: React.FC<Step1Props> = ({ register, errors }) => {
   return (
     <div className="space-y-4">
-      <H4 className="text-2xl">What's your agent called?</H4>
+      <H4 className="text-2xl">What&apos;s your agent called?</H4>
       <div className="space-y-2">
         <Input
           id="agentName"

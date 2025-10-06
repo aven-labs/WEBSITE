@@ -10,7 +10,7 @@ const WhatIsAven = () => {
           <H4 className="mb-4">What is Aven?</H4>
           <H2 className="text-4xl md:text-6xl mb-6">Aven Goes With You</H2>
           <Text className="max-w-2xl mx-auto">
-            Lives on your devices, whether it's your computer, tablet, or phone.
+            Lives on your devices, whether it&apos;s your computer, tablet, or phone.
             Aven is designed to be accessible and functional wherever you are.
           </Text>
         </div>

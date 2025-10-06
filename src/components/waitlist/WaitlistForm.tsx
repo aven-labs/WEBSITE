@@ -112,9 +112,9 @@ const WaitlistForm = () => {
               <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8 text-primary" />
               </div>
-              <H4 className="text-2xl mb-2">You're on the list!</H4>
+              <H4 className="text-2xl mb-2">You&apos;re on the list!</H4>
               <Text className="text-muted-foreground">
-                We'll notify you when we launch
+                We&apos;ll notify you when we launch
               </Text>
             </motion.div>
           ) : (

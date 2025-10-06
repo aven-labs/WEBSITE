@@ -16,10 +16,10 @@ const ContactHero = () => {
           className="flex flex-col gap-4 text-center max-w-3xl mx-auto"
         >
           <Text className="uppercase">Get in Touch</Text>
-          <H1 className="text-4xl md:!text-6xl">Let's Connect</H1>
+          <H1 className="text-4xl md:!text-6xl">Let&apos;s Connect</H1>
           <Text className="text-lg max-w-2xl mx-auto text-muted mb-4">
             We know no one likes to fill forms, so just choose your way of
-            communication and we'll come there, and if you looking for job
+            communication and we&apos;ll come there, and if you&apos;re looking for job
             Follow us on {" "}
             <Link
               href="https://wellfound.com/company/aven-labs-1"

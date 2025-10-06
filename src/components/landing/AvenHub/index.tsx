@@ -3,7 +3,7 @@ import AgentConnect from "./AgentConnect";
 import { useViewport } from "@/hooks/useViewport";
 import { ArrowRight } from "lucide-react";
 
-function index() {
+function Index() {
   const { isMobile } = useViewport();
   return (
     <div
@@ -25,4 +25,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

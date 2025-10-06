@@ -17,7 +17,7 @@ export interface StoryStep {
   responses: {
     text: string;
     position: ResponsivePosition;
-    Component?: React.ComponentType<any>;
+    Component?: React.ComponentType<Record<string, unknown>>;
     curvature?: {
       cp1Offset: number; // Control point 1 offset multiplier (0.25 default)
       cp2Offset: number; // Control point 2 offset multiplier (0.75 default)

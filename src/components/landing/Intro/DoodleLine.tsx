@@ -90,7 +90,7 @@ const DoodleLine: React.FC<DoodleLineProps> = ({
     const cp2Y = startY + deltaY * curvature.cp2Offset + perpY * curvePixels * 0.5;
 
     let path = `M ${startX} ${startY}`;
-    let points = [];
+    const points = [];
 
     // Generate smooth bezier curve points
     for (let i = 0; i <= segments; i++) {

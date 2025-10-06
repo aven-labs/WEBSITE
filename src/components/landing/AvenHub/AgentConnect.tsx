@@ -292,7 +292,7 @@ const AgentConnect: React.FC<AgentConnectProps> = ({
                     >
                       <div className="bg-background/40 rounded-lg p-3 border border-foreground/10">
                         <div className="text-xs font-mono text-foreground/80">
-                          "{command}"
+                          &quot;{command}&quot;
                         </div>
                       </div>
                     </motion.div>

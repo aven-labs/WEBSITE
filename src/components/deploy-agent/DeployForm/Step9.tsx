@@ -38,7 +38,7 @@ const Step9: React.FC<Step9Props> = ({
           </Label>
           <Select
             value={pricingModel}
-            onValueChange={(value) => setValue("pricingModel", value as any)}
+            onValueChange={(value) => setValue("pricingModel", value as "free" | "onetime" | "subscription")}
           >
             <SelectTrigger
               className={

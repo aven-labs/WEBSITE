@@ -70,27 +70,29 @@ export default async function handler(
     return res.status(200).json({
       message: "Successfully joined the waitlist!",
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error submitting to Airtable:", error);
 
     // Handle specific Airtable errors
-    if (error.statusCode === 401) {
-      return res.status(500).json({
-        message: "Configuration error",
-        error: "Invalid Airtable credentials",
-      });
-    }
+    if (error && typeof error === 'object' && 'statusCode' in error) {
+      if ((error as { statusCode: number }).statusCode === 401) {
+        return res.status(500).json({
+          message: "Configuration error",
+          error: "Invalid Airtable credentials",
+        });
+      }
 
-    if (error.statusCode === 404) {
-      return res.status(500).json({
-        message: "Configuration error",
-        error: "Airtable base or table not found",
-      });
+      if ((error as { statusCode: number }).statusCode === 404) {
+        return res.status(500).json({
+          message: "Configuration error",
+          error: "Airtable base or table not found",
+        });
+      }
     }
 
     return res.status(500).json({
       message: "Failed to submit",
-      error: error.message || "An unexpected error occurred",
+      error: error instanceof Error ? error.message : "An unexpected error occurred",
     });
   }
 }

@@ -14,7 +14,7 @@ const Step4: React.FC<Step4Props> = ({ register, errors }) => {
     <div className="space-y-4">
       <H4 className="text-2xl">What does it do?</H4>
       <Text className="text-muted">
-        Provide a detailed description of your agent's capabilities
+        Provide a detailed description of your agent&apos;s capabilities
       </Text>
       <div className="space-y-2">
         <Textarea
