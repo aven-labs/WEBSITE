@@ -98,7 +98,6 @@ function Card({ platform, centerLineRef, endTriggerRef }: CardProps) {
     centerLineRef,
     endTriggerRef,
   ]);
-  console.log(randomY);
   return (
     <motion.div
       ref={cardRef}

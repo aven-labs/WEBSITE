@@ -1,40 +1,26 @@
-import MusicPlayer from "../components/landing/Intro/MusicPlayer";
-import PhotoTransfer from "../components/landing/Intro/PhotoTransfer";
-import MarketingCampaign from "../components/landing/Intro/MarketingCampaign";
-
-export interface StoryStep {
-  request: {
-    text: string;
-    position: {
-      x: number;
-      y: number;
-    };
-  };
-  responses: {
-    text: string;
-    position: {
-      x: number;
-      y: number;
-    };
-    Component?: React.ComponentType<any>;
-    curvature?: {
-      cp1Offset: number; // Control point 1 offset multiplier (0.25 default)
-      cp2Offset: number; // Control point 2 offset multiplier (0.75 default)
-      curveAmount: number; // Base curve intensity (0.15 default, max 60px)
-    };
-  }[];
-}
+import MusicPlayer from "../MusicPlayer";
+import PhotoTransfer from "../PhotoTransfer";
+import MarketingCampaign from "../MarketingCampaign";
+import type { StoryStep } from "@/components/landing/Intro/model/intro";
 
 export const storySteps: StoryStep[] = [
   {
     request: {
       text: "Aven, Play the song I played last night",
-      position: { x: 5, y: 20 },
+      position: {
+        default: { x: 5, y: 15 },
+        md: { x: 5, y: 20 },
+        lg: { x: 5, y: 20 },
+      },
     },
     responses: [
       {
         text: "Playing song",
-        position: { x: 75, y: 5 },
+        position: {
+          default: { x: 60, y: 5 },
+          md: { x: 70, y: 5 },
+          lg: { x: 75, y: 5 },
+        },
         Component: MusicPlayer,
         curvature: {
           cp1Offset: 0.3,
@@ -47,12 +33,20 @@ export const storySteps: StoryStep[] = [
   {
     request: {
       text: "Send me all the weekend photos from my phone to my laptop",
-      position: { x: 5, y: 40 },
+      position: {
+        default: { x: 5, y: 35 },
+        md: { x: 5, y: 40 },
+        lg: { x: 5, y: 40 },
+      },
     },
     responses: [
       {
         text: "Sending Photos",
-        position: { x: 80, y: 60 },
+        position: {
+          default: { x: 65, y: 55 },
+          md: { x: 75, y: 60 },
+          lg: { x: 80, y: 60 },
+        },
         Component: PhotoTransfer,
         curvature: {
           cp1Offset: 0.25,
@@ -65,12 +59,20 @@ export const storySteps: StoryStep[] = [
   {
     request: {
       text: "I need to automate my marketing campaign, can do it?",
-      position: { x: 5, y: 60 },
+      position: {
+        default: { x: 5, y: 55 },
+        md: { x: 5, y: 60 },
+        lg: { x: 5, y: 60 },
+      },
     },
     responses: [
       {
         text: "Automating Marketing Campaign",
-        position: { x: 58.5, y: 75 },
+        position: {
+          default: { x: 50, y: 72 },
+          md: { x: 55, y: 75 },
+          lg: { x: 58.5, y: 75 },
+        },
         Component: MarketingCampaign,
         curvature: {
           cp1Offset: 0.25,

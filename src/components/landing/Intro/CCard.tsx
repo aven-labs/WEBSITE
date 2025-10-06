@@ -55,7 +55,7 @@ const CCard = React.forwardRef<HTMLDivElement, CCardProps>(
           ease: [0.23, 1, 0.32, 1],
         }}
         className={cn(
-          "absolute backdrop-blur-md rounded-2xl p-8 z-2 text-lg text-background transform",
+          "absolute backdrop-blur-md rounded-2xl p-2 md:p-4 lg:p-6 2xl:p-8 z-2 text-sm md:text-lg text-background transform",
           "bg-background/20",
           className
         )}
