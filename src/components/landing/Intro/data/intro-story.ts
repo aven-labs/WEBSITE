@@ -8,7 +8,7 @@ export const storySteps: StoryStep[] = [
     request: {
       text: "Aven, Play the song I played last night",
       position: {
-        default: { x: 5, y: 15 },
+        default: { x: 5, y: 55 },
         md: { x: 5, y: 20 },
         lg: { x: 5, y: 20 },
       },
@@ -17,7 +17,7 @@ export const storySteps: StoryStep[] = [
       {
         text: "Playing song",
         position: {
-          default: { x: 60, y: 5 },
+          default: { x: 5, y: 70 },
           md: { x: 70, y: 5 },
           lg: { x: 75, y: 5 },
         },
@@ -34,7 +34,7 @@ export const storySteps: StoryStep[] = [
     request: {
       text: "Send me all the weekend photos from my phone to my laptop",
       position: {
-        default: { x: 5, y: 35 },
+        default: { x: 5, y: 20 },
         md: { x: 5, y: 40 },
         lg: { x: 5, y: 40 },
       },
@@ -43,7 +43,7 @@ export const storySteps: StoryStep[] = [
       {
         text: "Sending Photos",
         position: {
-          default: { x: 65, y: 55 },
+          default: { x: 10, y: 30 },
           md: { x: 75, y: 60 },
           lg: { x: 80, y: 60 },
         },
@@ -60,7 +60,7 @@ export const storySteps: StoryStep[] = [
     request: {
       text: "I need to automate my marketing campaign, can do it?",
       position: {
-        default: { x: 5, y: 55 },
+        default: { x: 5, y: 60 },
         md: { x: 5, y: 60 },
         lg: { x: 5, y: 60 },
       },

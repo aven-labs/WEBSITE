@@ -23,6 +23,7 @@ const getResponsivePosition = (responsivePos: ResponsivePosition): Position => {
 };
 
 export const useIntroStory = () => {
+  const [isMobile, setIsMobile] = useState(false);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [visibleResponses, setVisibleResponses] = useState<
@@ -55,6 +56,9 @@ export const useIntroStory = () => {
   // Update positions based on viewport
   useEffect(() => {
     const updatePositions = () => {
+      const width = typeof window !== 'undefined' ? window.innerWidth : 1024;
+      setIsMobile(width < 640); // sm breakpoint
+
       const newPositions: Record<
         number,
         { request: Position; responses: Position[] }
@@ -202,6 +206,7 @@ export const useIntroStory = () => {
   }, []);
 
   return {
+    isMobile,
     currentStepIndex,
     completedSteps,
     visibleResponses,

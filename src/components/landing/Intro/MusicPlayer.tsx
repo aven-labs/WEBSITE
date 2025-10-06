@@ -65,13 +65,13 @@ export default function MusicPlayer({ isVisible = true }: MusicPlayerProps) {
   return (
     <div
       ref={containerRef}
-      className={`w-full sm:w-[280px] md:w-[320px] relative text-foreground transition-opacity duration-300`}
+      className={`w-[280px] md:w-[320px] relative text-foreground transition-opacity duration-300`}
     >
-      <div className="overflow-hidden flex-shrink-0 mb-4 sm:mb-6 rounded-lg">
+      <div className="overflow-hidden flex-shrink-0 md:mb-4 rounded-lg">
         <img
           src={NCSImage.src}
           alt="Album cover"
-          className="w-full h-full object-cover"
+          className="w-16 max-md:absolute -top-10 -right-10 md:w-full h-fit rounded-lg object-cover"
         />
       </div>
       <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">

@@ -41,21 +41,24 @@ export default function PhotoCollage({ isVisible }: PhotoCollageProps) {
   return (
     <div
       ref={containerRef}
-      className={`grid grid-cols-2 gap-2 w-[300px] ${
+      className={`flex flex-col sm:grid sm:grid-cols-2 gap-1.5 sm:gap-2 w-full sm:w-[240px] md:w-[300px] ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
       {photos.map((photo, index) => (
         <div
           key={index}
-          className="overflow-hidden rounded-lg aspect-square"
+          className="flex sm:block overflow-hidden rounded-md sm:rounded-lg h-16 sm:h-auto sm:aspect-square"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={photo}
             alt={`Weekend photo ${index + 1}`}
-            className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+            className="w-16 sm:w-full h-full object-cover transform hover:scale-110 transition-transform duration-300 flex-shrink-0"
           />
+          <div className="flex-1 flex items-center px-3 sm:hidden bg-muted/20">
+            <span className="text-xs text-muted-foreground">Photo {index + 1}</span>
+          </div>
         </div>
       ))}
     </div>

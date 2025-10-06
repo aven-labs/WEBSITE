@@ -6,17 +6,17 @@ import { AccessButton, AccessHub } from "../Access";
 
 const Hero = () => {
   return (
-    <section className="flex py-24 items-center">
+    <section className="flex py-6 md:py-24 items-center">
       <div className="container px-8 mx-auto">
-        <div className="flex flex-col md:flex-row items-baseline-last justify-between gap-12">
-          <div className="md:w-2/3">
+        <div className="grid grid-cols-1 md:grid-cols-3 items-baseline-last justify-between gap-12">
+          <div className="md:col-span-2 col-span-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
               <H4 className="text-md uppercase text-secondary-foreground">
-                Built in Community
+                {data.hero.title.pre}
               </H4>
               <H1 className="text-5xl md:!text-8xl leading-[1.2]">
                 {data.hero.title.main}
@@ -41,7 +41,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className=""
+            className="col-span-1"
           >
             <nav className="space-y-4 text-muted">
               {data.hero.navigation.map((item, index) => (

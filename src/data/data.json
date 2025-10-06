@@ -5,13 +5,14 @@
   },
   "hero": {
     "title": {
-      "main": "Just Say It",
-      "sub": "Aven will do it.",
-      "description": "Install Agents from trusted Aven hub on your device like you install Apps. \n No-one loves to give there data then why give them, store it on your device and give it on premise basis."
+      "pre": "Aven is you",
+      "main": "Thinking?",
+      "sub": "Already Done",
+      "description": "Remember When JARVIS called Pepper for Tony? he knew Tony would’ve done the same. That's Aven"
     },
     "buttons": {
       "primary": "Join Our Waitlist",
-      "secondary": "Deploy Your Agent"
+      "secondary": "Share Your Agent"
     },
     "navigation": [
       { "title": "What is Aven?", "href": "#what-is-aven" },

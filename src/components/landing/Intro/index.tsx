@@ -7,6 +7,7 @@ import { useIntroStory } from "./hooks/useIntroStory";
 
 function Intro() {
   const {
+    isMobile,
     currentStepIndex,
     visibleResponses,
     showDoodleLines,
@@ -32,6 +33,8 @@ function Intro() {
 
       {/* Render all steps that have been started */}
       {storySteps.map((step, stepIndex) => {
+        // Only show first step on mobile
+        if (isMobile && stepIndex > 0) return null;
         // Only render if this step has started (current or completed)
         if (stepIndex > currentStepIndex) return null;
 

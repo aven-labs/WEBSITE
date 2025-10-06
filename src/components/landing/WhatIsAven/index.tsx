@@ -1,21 +1,17 @@
-import React from "react";
-import { Apple, Monitor, Smartphone } from "lucide-react";
 import { H2, Text, Small, H4 } from "@/components/ui/typography";
 import FloatingCard from "./FloatingCard";
 
 const WhatIsAven = () => {
   return (
-    <section id="what-is-aven" className="py-24">
+    <section id="what-is-aven" className="py-6 md:py-24">
       <div className="container mx-auto px-4">
         {/* Main Content */}
-        <div className="text-center mb-16">
+        <div className="md:text-center mb-16">
           <H4 className="mb-4">What is Aven?</H4>
-          <H2 className="text-4xl md:text-6xl mb-6">
-            First, Cross OS Local Agent
-          </H2>
+          <H2 className="text-4xl md:text-6xl mb-6">Aven Goes With You</H2>
           <Text className="max-w-2xl mx-auto">
-            Always stays on your devices and create workflows connect with mcp
-            servers according to your preference
+            Lives on your devices, whether it's your computer, tablet, or phone.
+            Aven is designed to be accessible and functional wherever you are.
           </Text>
         </div>
       </div>
