@@ -60,7 +60,7 @@ export default async function handler(
 
     // Send confirmation email using template
     try {
-      await sendTemplatedEmail(tableName, email, { name });
+      await sendTemplatedEmail("waitlist", email, { name });
       console.log("Confirmation email sent to:", email);
     } catch (emailError) {
       console.error("Failed to send confirmation email:", emailError);

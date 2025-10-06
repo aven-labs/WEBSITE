@@ -16,7 +16,7 @@ function createTransporter() {
 
   // Using Hostinger SMTP
   return nodemailer.createTransport({
-    host: 'smtp.hostinger.com',
+    host: 'smtp.zoho.in',
     port: 465,
     secure: true,
     auth: {
