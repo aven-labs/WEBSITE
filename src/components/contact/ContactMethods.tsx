@@ -11,6 +11,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { DiscordLogoIcon } from "@radix-ui/react-icons";
+import data from "@/data/data.json";
 
 interface ContactMethod {
   icon: React.ReactNode;
@@ -24,37 +25,39 @@ const contactMethods: ContactMethod[] = [
     icon: <MessageCircle className="w-8 h-8" />,
     title: "WhatsApp",
     description: "Chat with us instantly",
-    link: "https://wa.me/1234567890",
+    link: data.contact.whatsapp.startsWith('+') 
+      ? `https://wa.me/${data.contact.whatsapp.replace(/[^0-9]/g, '')}`
+      : data.contact.whatsapp,
   },
   {
     icon: <Mail className="w-8 h-8" />,
     title: "Email",
-    description: "dhruv@helloaven.com",
-    link: "mailto:dhruv@helloaven.com",
+    description: data.contact.email,
+    link: `mailto:${data.contact.email}`,
   },
   {
     icon: <Calendar className="w-8 h-8" />,
     title: "Book a Meeting",
     description: "Schedule a video call",
-    link: "https://calendly.com/aven",
+    link: data.contact.calendly,
   },
   {
     icon: <Twitter className="w-8 h-8" />,
     title: "X (Twitter)",
     description: "Follow and DM us",
-    link: "https://x.com/aven",
+    link: data.social.X,
   },
   {
     icon: <DiscordLogoIcon className="w-8 h-8" />,
     title: "Discord",
     description: "Join our community",
-    link: "https://discord.gg/aven",
+    link: data.social.Discord,
   },
   {
     icon: <Linkedin className="w-8 h-8" />,
     title: "LinkedIn",
     description: "Connect professionally",
-    link: "https://linkedin.com/company/aven",
+    link: data.social.LinkedIn,
   },
 ];
 
@@ -68,7 +71,7 @@ const ContactMethods = () => {
             href={method.link}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05, duration: 0.5 }}
             className="group rounded-xl p-6 transition-all duration-300 cursor-pointer bg-card"

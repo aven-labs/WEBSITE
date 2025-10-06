@@ -1,5 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import Airtable from 'airtable';
+import type { NextApiRequest, NextApiResponse } from "next";
+import Airtable from "airtable";
+import { sendTemplatedEmail } from "./templates/emailService";
 
 type ResponseData = {
   message: string;
@@ -11,21 +12,21 @@ export default async function handler(
   res: NextApiResponse<ResponseData>
 ) {
   // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method not allowed" });
   }
 
   try {
     // Validate environment variables
     const apiKey = process.env.AIRTABLE_API_KEY;
     const baseId = process.env.AIRTABLE_BASE_ID;
-    const tableName = process.env.AIRTABLE_TABLE_NAME || 'Waitlist';
+    const tableName = process.env.AIRTABLE_TABLE_NAME || "Waitlist";
 
     if (!apiKey || !baseId) {
-      console.error('Missing Airtable configuration');
-      return res.status(500).json({ 
-        message: 'Server configuration error',
-        error: 'Airtable credentials not configured'
+      console.error("Missing Airtable configuration");
+      return res.status(500).json({
+        message: "Server configuration error",
+        error: "Airtable credentials not configured",
       });
     }
 
@@ -34,9 +35,9 @@ export default async function handler(
 
     // Validate required fields
     if (!name || !email || !vision) {
-      return res.status(400).json({ 
-        message: 'Missing required fields',
-        error: 'Name, email, and vision are required'
+      return res.status(400).json({
+        message: "Missing required fields",
+        error: "Name, email, and vision are required",
       });
     }
 
@@ -49,40 +50,47 @@ export default async function handler(
         fields: {
           Name: name,
           Email: email,
-          Gender: gender || '',
+          Gender: gender || "",
           Vision: vision,
-          'Submitted At': new Date().toISOString(),
         },
       },
     ]);
 
-    console.log('Successfully created record:', record[0].id);
+    console.log("Successfully created record:", record[0].id);
 
-    return res.status(200).json({ 
-      message: 'Successfully joined the waitlist!' 
+    // Send confirmation email using template
+    try {
+      await sendTemplatedEmail(tableName, email, { name });
+      console.log("Confirmation email sent to:", email);
+    } catch (emailError) {
+      console.error("Failed to send confirmation email:", emailError);
+      // Don't fail the request if email fails, just log it
+    }
+
+    return res.status(200).json({
+      message: "Successfully joined the waitlist!",
     });
-
   } catch (error: any) {
-    console.error('Error submitting to Airtable:', error);
-    
+    console.error("Error submitting to Airtable:", error);
+
     // Handle specific Airtable errors
     if (error.statusCode === 401) {
-      return res.status(500).json({ 
-        message: 'Configuration error',
-        error: 'Invalid Airtable credentials'
+      return res.status(500).json({
+        message: "Configuration error",
+        error: "Invalid Airtable credentials",
       });
     }
 
     if (error.statusCode === 404) {
-      return res.status(500).json({ 
-        message: 'Configuration error',
-        error: 'Airtable base or table not found'
+      return res.status(500).json({
+        message: "Configuration error",
+        error: "Airtable base or table not found",
       });
     }
 
-    return res.status(500).json({ 
-      message: 'Failed to submit',
-      error: error.message || 'An unexpected error occurred'
+    return res.status(500).json({
+      message: "Failed to submit",
+      error: error.message || "An unexpected error occurred",
     });
   }
 }

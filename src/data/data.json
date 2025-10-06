@@ -19,5 +19,17 @@
       { "title": "Is It Secure?", "href": "#is-it-secure" },
       { "title": "Aven Hub?", "href": "#aven-hub" }
     ]
+  },
+  "social": {
+    "X": "https://x.com/aven_labs",
+    "LinkedIn": "https://www.linkedin.com/company/aven_labs",
+    "Discord": "https://discord.gg/duvYhkW5",
+    "GitHub": "https://github.com/aven-labs"
+  },
+  "contact":{
+    "email": "dhruv@helloaven.com",
+    "whatsapp": "+91 8595771213",
+    "calendly": "https://calendly.com/dhruv-helloaven/30min",
+    "career":"https://wellfound.com/company/aven-labs-1"
   }
 }

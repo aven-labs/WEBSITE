@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Airtable from "airtable";
+import { sendTemplatedEmail } from "./templates/emailService";
 
 type ResponseData = {
   message: string;
@@ -20,7 +21,7 @@ export default async function handler(
     const apiKey = process.env.AIRTABLE_API_KEY;
     const baseId = process.env.AIRTABLE_BASE_ID;
     const tableName =
-      process.env.AIRTABLE_DEPLOY_TABLE_NAME || "AgentSubmissions";
+      process.env.AIRTABLE_TABLE_AGENT_NAME || "AgentSubmissions";
 
     if (!apiKey || !baseId) {
       console.error("Missing Airtable configuration");
@@ -76,7 +77,6 @@ export default async function handler(
 
     // Initialize Airtable
     const base = new Airtable({ apiKey }).base(baseId);
-
     // Create record in Airtable
     const record = await base(tableName).create([
       {
@@ -97,18 +97,29 @@ export default async function handler(
           GitHub: github || "",
           Discord: discord || "",
           "Pricing Model": pricingModel,
-          Price: price || "",
-          "Monthly Price": monthlyPrice || "",
-          "Has Free Trial": hasFreeTrial || "",
-          "Trial Days": trialDays || "",
+          Price: parseFloat(price) || 0,
+          "Monthly Price": parseFloat(monthlyPrice) || 0,
+          "Has Free Trial": hasFreeTrial ? "Yes" : "No",
+          "Trial Days": trialDays || 0,
           "Special Note": specialNote || "",
           Status: "Pending Review",
-          "Submitted At": new Date().toISOString(),
         },
       },
     ]);
 
     console.log("Successfully created record:", record[0].id);
+
+    // Send confirmation email using template
+    try {
+      await sendTemplatedEmail("agentSubmission", contactEmail, {
+        name: contactName,
+        agentName: agentName,
+      });
+      console.log("Confirmation email sent to:", contactEmail);
+    } catch (emailError) {
+      console.error("Failed to send confirmation email:", emailError);
+      // Don't fail the request if email fails, just log it
+    }
 
     return res.status(200).json({
       message: "Agent submitted successfully!",

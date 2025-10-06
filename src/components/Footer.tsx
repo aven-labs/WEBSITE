@@ -5,6 +5,8 @@ import {
   FooterColumn,
   FooterBottom,
 } from "./ui/footer";
+import data from "@/data/data.json";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const footerLinks = [
   {
@@ -20,12 +22,12 @@ const footerLinks = [
       { label: "Contact", href: "/contact" },
       {
         label: "Book a Meeting",
-        href: "https://calendly.com/dhruv-helloaven/30min",
+        href: data.contact.calendly,
         blank: true,
       },
       {
         label: "Careers",
-        href: "https://wellfound.com/company/aven-labs-1",
+        href: data.contact.career,
         blank: true,
       },
     ],
@@ -33,10 +35,10 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { label: "X", href: "#twitter" },
-  { label: "Discord", href: "#discord" },
-  { label: "GitHub", href: "#github" },
-  { label: "LinkedIn", href: "#linkedin" },
+  { label: "X", href: data.social.X },
+  { label: "Discord", href: data.social.Discord },
+  { label: "GitHub", href: data.social.GitHub },
+  { label: "LinkedIn", href: data.social.LinkedIn },
 ];
 
 const Footer = () => {
@@ -46,8 +48,8 @@ const Footer = () => {
         <FooterContent>
           <FooterColumn>
             <h3 className="text-xl font-bold">Aven</h3>
-            <p className="text-muted text-sm">
-              Building the future of secure communication.
+            <p className="flex items-center gap-2 text-muted text-sm">
+              Install <ArrowRight className="w-4 h-4" /> Plug <ArrowRight className="w-4 h-4" /> Run
             </p>
           </FooterColumn>
           <FooterColumn />
@@ -79,6 +81,7 @@ const Footer = () => {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
                 className="hover:text-foreground transition-colors"
               >
                 {social.label}
