@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { sfProDisplay } from "@/lib/fonts";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,6 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ScrollArea className="h-screen">
         <Component {...pageProps} />
       </ScrollArea>
+      <Analytics />
     </main>
   );
 }
