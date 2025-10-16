@@ -80,7 +80,7 @@ const Step9: React.FC<Step9Props> = ({
             <Input
               id="monthlyPrice"
               type="text"
-              placeholder="$9.99/month"
+              placeholder="9.99"
               {...register("monthlyPrice")}
             />
           </div>
