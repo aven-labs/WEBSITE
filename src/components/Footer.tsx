@@ -21,7 +21,7 @@ const footerLinks = [
     links: [
       { label: "Contact", href: "/contact" },
       {
-        label: "Book a Meeting",
+        label: "Let's Meet",
         href: data.contact.calendly,
         blank: true,
       },
@@ -75,7 +75,7 @@ const Footer = () => {
         </FooterContent>
 
         <FooterBottom>
-          <p>© {new Date().getFullYear()} Aven. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Operator Uplift LLC. All rights reserved.</p>
           <div className="flex gap-4">
             {socialLinks.map((social) => (
               <a

@@ -1,14 +1,15 @@
 {
   "navbar": {
-    "brand": "Aven",
+    "brand": "OU",
     "link": "Developers Hub"
   },
   "hero": {
     "title": {
-      "pre": "Aven is you",
-      "main": "Thinking?",
-      "sub": "Already Done",
-      "description": "Remember When JARVIS called Pepper for Tony? he knew Tony would’ve done the same. That's Aven"
+      "pre": "Uplift your life through aven",
+      "main": "One mind",
+      "subb": "Millions of Agents",
+      "sub": "Infinite possibilities",
+      "description": "Operator Uplift brings every agent, every device, and every memory together through Aven, your single point of connection."
     },
     "buttons": {
       "primary": "Join Our Waitlist",
@@ -26,10 +27,10 @@
     "Discord": "https://discord.gg/duvYhkW5",
     "GitHub": "https://github.com/aven-labs"
   },
-  "contact":{
+  "contact": {
     "email": "dhruv@helloaven.com",
     "whatsapp": "+91 8595771213",
     "calendly": "https://calendly.com/dhruv-helloaven/30min",
-    "career":"https://wellfound.com/company/aven-labs-1"
+    "career": "https://wellfound.com/company/aven-labs-1"
   }
 }

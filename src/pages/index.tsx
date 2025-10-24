@@ -6,12 +6,12 @@ import Intro from "../components/landing/Intro";
 import WhatIsAven from "../components/landing/WhatIsAven";
 import AvenHub from "../components/landing/AvenHub";
 import IsItSecure from "../components/landing/IsItSecure";
-import Pricing from "../components/landing/Pricing";
+// import Pricing from "../components/landing/Pricing";
 import Footer from "@/components/Footer";
 import Access from "@/components/Access";
 
 function LandingPage() {
-  const title = "Aven | Your Personal AI Agent That Truly Understands You";
+  const title = "Operator Uplifts there life through Aven";
   const description = "Aven is your thinking companion - an AI agent that lives on your devices, understands your context, and acts on your behalf. Experience true personalized AI assistance that knows what you need before you ask.";
   const url = "https://helloaven.com";
   const image = "https://helloaven.com/og-image.png";

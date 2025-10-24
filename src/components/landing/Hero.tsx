@@ -18,8 +18,10 @@ const Hero = () => {
               <H4 className="text-md uppercase text-secondary-foreground">
                 {data.hero.title.pre}
               </H4>
-              <H1 className="text-5xl md:!text-8xl leading-[1.2]">
+              <H1 className="text-5xl md:!text-7xl leading-[1.2]">
                 {data.hero.title.main}
+                <br />
+                {data.hero.title.subb}
                 <br />
                 {data.hero.title.sub}
               </H1>
@@ -43,7 +45,7 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.5 }}
             className="col-span-1"
           >
-            <nav className="space-y-4 text-muted">
+            <nav className="space-y-4 text-xl text-muted">
               {data.hero.navigation.map((item, index) => (
                 <motion.div
                   key={item.href}
