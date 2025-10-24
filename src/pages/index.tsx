@@ -41,8 +41,8 @@ function LandingPage() {
       "url": "https://helloaven.com",
       "logo": "https://helloaven.com/logo.svg",
       "sameAs": [
-        "https://x.com/aven_labs",
-        "https://www.linkedin.com/company/aven_labs",
+        "https://x.com/OperatorUplift",
+        "https://www.linkedin.com/company/operatoruplift",
         "https://github.com/aven-labs",
         "https://discord.gg/duvYhkW5"
       ]
