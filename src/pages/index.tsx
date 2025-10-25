@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 import Access from "@/components/Access";
 
 function LandingPage() {
-  const title = "Operator Uplifts there life through Aven";
+  const title = "The OS for Human Potential - Uplift";
   const description = "Aven is your thinking companion - an AI agent that lives on your devices, understands your context, and acts on your behalf. Experience true personalized AI assistance that knows what you need before you ask.";
   const url = "https://helloaven.com";
   const image = "https://helloaven.com/og-image.png";
