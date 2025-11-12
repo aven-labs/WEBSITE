@@ -58,7 +58,7 @@ export const storySteps: StoryStep[] = [
   },
   {
     request: {
-      text: "I need to automate my marketing campaign, can do it?",
+      text: "Automate my marketing campaign on X",
       position: {
         default: { x: 5, y: 60 },
         md: { x: 5, y: 60 },

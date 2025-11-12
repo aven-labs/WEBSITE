@@ -1,19 +1,19 @@
 {
   "navbar": {
     "brand": "OU",
-    "link": "Developers Hub"
+    "link": "Aven Hub"
   },
   "hero": {
     "title": {
-      "pre": "Uplift your life through aven",
-      "main": "One mind",
-      "subb": "Millions of Agents",
-      "sub": "Endless Growth",
-      "description": "Operator Uplift brings every agent, every device, and every memory together through Aven, your single point of connection."
+      "pre": "Netflix for Agents",
+      "main": "One mind, One Voice",
+      "subb": "Unlimited Possibilities",
+      "sub": "",
+      "description": "Make your own AI companion. your way, with the power you choose."
     },
     "buttons": {
       "primary": "Join Our Waitlist",
-      "secondary": "Share Your Agent"
+      "secondary": "Publish Your Agent"
     },
     "navigation": [
       { "title": "What is Aven?", "href": "#what-is-aven" },
