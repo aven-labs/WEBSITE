@@ -4,8 +4,22 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Favicon */}
+        {/* Favicon - Multiple sizes for better Google recognition */}
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo.svg" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logo.svg" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/logo.svg" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/logo.svg" />
+        <link rel="shortcut icon" href="/logo.svg" />
         
         {/* Fonts preload for performance */}
         <link

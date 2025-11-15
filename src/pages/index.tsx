@@ -16,6 +16,28 @@ function LandingPage() {
   const url = "https://operatoruplift.com";
   const image = "https://operatoruplift.com/og-image.png";
 
+  // Organization schema for Google logo display
+  const organizationData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Operator Uplift Inc.",
+    "alternateName": "Uplift",
+    "url": url,
+    "logo": "https://operatoruplift.com/logo.svg",
+    "image": "https://operatoruplift.com/logo.svg",
+    "sameAs": [
+      "https://x.com/OperatorUplift",
+      "https://www.linkedin.com/company/operatoruplift",
+      "https://github.com/aven-labs",
+      "https://discord.gg/duvYhkW5"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "url": "https://operatoruplift.com/contact"
+    }
+  };
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -35,17 +57,23 @@ function LandingPage() {
       "ratingValue": "4.8",
       "ratingCount": "150"
     },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Operator Uplift Inc.",
+      "url": "https://operatoruplift.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://operatoruplift.com/logo.svg"
+      }
+    },
     "author": {
       "@type": "Organization",
-      "name": "Uplift Labs",
+      "name": "Operator Uplift Inc.",
       "url": "https://operatoruplift.com",
-      "logo": "https://operatoruplift.com/logo.svg",
-      "sameAs": [
-        "https://x.com/OperatorUplift",
-        "https://www.linkedin.com/company/operatoruplift",
-        "https://github.com/aven-labs",
-        "https://discord.gg/duvYhkW5"
-      ]
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://operatoruplift.com/logo.svg"
+      }
     }
   };
 
@@ -68,8 +96,11 @@ function LandingPage() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
+        <meta property="og:image:secure_url" content={image} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Uplift - The OS for Human Potential" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:site_name" content="Uplift" />
         <meta property="og:locale" content="en_US" />
 
@@ -90,7 +121,12 @@ function LandingPage() {
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
 
-        {/* Structured Data */}
+        {/* Structured Data - Organization (for Google logo) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
+        />
+        {/* Structured Data - Software Application */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
