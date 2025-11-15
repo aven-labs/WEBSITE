@@ -4,10 +4,10 @@ import { WaitlistForm } from "@/components/waitlist";
 import Footer from "@/components/Footer";
 
 function Waitlist() {
-  const title = "Join Aven Waitlist | Get Early Access to AI Assistant";
-  const description = "Join the Aven waitlist and be among the first to experience the future of personal AI assistance. Get early access to an AI agent that truly understands you.";
-  const url = "https://helloaven.com/waitlist";
-  const image = "https://helloaven.com/og-image.png";
+  const title = "Join Uplift Waitlist | Get Early Access to AI Assistant";
+  const description = "Join the Uplift waitlist and be among the first to experience the future of personal AI assistance. Get early access to an AI agent that truly understands you.";
+  const url = "https://operatoruplift.com/waitlist";
+  const image = "https://operatoruplift.com/og-image.png";
 
   return (
     <>

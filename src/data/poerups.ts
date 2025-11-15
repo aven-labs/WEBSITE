@@ -8,7 +8,7 @@ export const platforms = [
   { name: "Android", afterText: "Android Connected", icon: Smartphone, delay: 6 },
   { name: "iOS", afterText: "iOS Linked", icon: Smartphone, delay: 8 },
 
-  // Aven System Modules (still a little gap to feel like phase 2)
+  // Uplift System Modules (still a little gap to feel like phase 2)
   { name: "Local Agent", afterText: "Agent Activated", icon: Cpu, delay: 12 },
   { name: "Cross-Device Link", afterText: "Connection Established", icon: Workflow, delay: 16 },
   { name: "Private Compute", afterText: "Secured and Ready", icon: Shield, delay: 20 },

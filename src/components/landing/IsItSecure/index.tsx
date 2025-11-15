@@ -5,9 +5,9 @@ import { ArrowRight, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const securityFeatures = [
-  "Nothing is Stored in Cloud",
-  "Open Source",
-  "Building in Public",
+  "Isolated agents",
+  "Temporary tokens",
+  "Open source security",
 ];
 
 function IsItSecure() {
@@ -23,8 +23,7 @@ function IsItSecure() {
         >
           <H4>Is It Secure?</H4>
           <H2 className="text-4xl md:text-6xl w-full lg:w-3/4 leading-[1.2]">
-            Your data on your device connected with on-demand token based data
-            transfer{" "}
+            Uplift uses sandboxed agents and on-demand permissions.
           </H2>
         </motion.div>
 

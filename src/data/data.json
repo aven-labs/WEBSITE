@@ -1,24 +1,24 @@
 {
   "navbar": {
-    "brand": "OU",
-    "link": "Aven Hub"
+    "brand": "Uplift",
+    "link": "Uplift Hub"
   },
   "hero": {
     "title": {
-      "pre": "Netflix for Agents",
-      "main": "One mind, One Voice",
-      "subb": "Unlimited Possibilities",
-      "sub": "",
-      "description": "Make your own AI companion. your way, with the power you choose."
+      "pre": "unlimited memory + task execution + agent connections",
+      "main": "All your AI",
+      "subb": "one place",
+      "sub": "Every device",
+      "description": "Uplift brings all your AI tools together into one simple assistant. It remembers everything, connects to the agents you install, and can run tasks for you across all your devices, automatically and securely."
     },
     "buttons": {
-      "primary": "Join Our Waitlist",
+      "primary": "Get Early Access",
       "secondary": "Publish Your Agent"
     },
     "navigation": [
-      { "title": "What is Aven?", "href": "#what-is-aven" },
+      { "title": "What is Uplift?", "href": "#what-is-aven" },
       { "title": "Is It Secure?", "href": "#is-it-secure" },
-      { "title": "Aven Hub?", "href": "#aven-hub" }
+      { "title": "Uplift Hub?", "href": "#aven-hub" }
     ]
   },
   "social": {
@@ -30,7 +30,7 @@
   "contact": {
     "email": "matt@operatoruplift.com",
     "whatsapp": "+91 8595771213",
-    "calendly": "https://calendly.com/dhruv-helloaven/30min",
-    "career": "https://wellfound.com/company/aven-labs-1"
+    "calendly": "https://calendly.com/dhruv-helloaven/uplift-meet",
+    "career": "https://wellfound.com/company/uplift-os"
   }
 }

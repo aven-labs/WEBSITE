@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://helloaven.com',
+  siteUrl: process.env.SITE_URL || 'https://operatoruplift.com',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   robotsTxtOptions: {
@@ -12,7 +12,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://helloaven.com/sitemap.xml',
+      'https://operatoruplift.com/sitemap.xml',
     ],
   },
   exclude: ['/api/*', '/404'],

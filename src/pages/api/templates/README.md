@@ -20,12 +20,12 @@ Each template includes:
 
 ### 1. **Subject** - Email subject line with variables
 ```typescript
-subject: 'Welcome to Aven Waitlist! 🚀'
+subject: 'Welcome to Uplift Waitlist! 🚀'
 ```
 
 ### 2. **Heading** - Main heading in the email
 ```typescript
-heading: 'Welcome to Aven! 🎉'
+heading: 'Welcome to Uplift! 🎉'
 ```
 
 ### 3. **Content** - Email body with sections
@@ -38,7 +38,7 @@ content: {
     items: [...]
   }],
   closing: 'Stay tuned!',            // Optional closing message
-  signature: 'The Aven Team'         // Optional signature
+  signature: 'The Uplift Team'         // Optional signature
 }
 ```
 
@@ -150,8 +150,8 @@ They can be used in:
 **Example:**
 ```typescript
 Template: "Hi {{name}}, welcome to {{platform}}!"
-Variables: { name: "John", platform: "Aven" }
-Result: "Hi John, welcome to Aven!"
+Variables: { name: "John", platform: "Uplift" }
+Result: "Hi John, welcome to Uplift!"
 ```
 
 ## Email Styling

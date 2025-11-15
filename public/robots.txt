@@ -6,7 +6,7 @@ Allow: /
 Disallow: /api/
 
 # Host
-Host: https://helloaven.com
+Host: https://operatoruplift.com
 
 # Sitemaps
-Sitemap: https://helloaven.com/sitemap.xml
+Sitemap: https://operatoruplift.com/sitemap.xml

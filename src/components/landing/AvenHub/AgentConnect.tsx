@@ -22,7 +22,7 @@ interface AgentConnectProps {
 const AgentConnect: React.FC<AgentConnectProps> = ({
   command = "Book an appointment with doctor",
   agentName = "Medical Scheduler Agent",
-  marketplace = "Aven Marketplace",
+  marketplace = "Uplift Marketplace",
   direction = "horizontal",
   onComplete,
 }) => {

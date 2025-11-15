@@ -6,7 +6,7 @@ import type { StoryStep } from "@/components/landing/Intro/model/intro";
 export const storySteps: StoryStep[] = [
   {
     request: {
-      text: "Aven, Play the song I played last night",
+      text: "Uplift, Play the song I played last night",
       position: {
         default: { x: 5, y: 50 },
         md: { x: 5, y: 20 },

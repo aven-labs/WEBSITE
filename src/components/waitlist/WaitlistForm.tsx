@@ -240,7 +240,7 @@ const WaitlistForm = () => {
               </Button>
 
               <Text className="text-xs text-center text-muted">
-                By joining, you agree to receive updates about Aven. We respect
+                By joining, you agree to receive updates about Uplift. We respect
                 your privacy.
               </Text>
             </form>

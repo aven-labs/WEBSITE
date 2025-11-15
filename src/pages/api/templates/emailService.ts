@@ -52,7 +52,7 @@ export async function sendTemplatedEmail(
   // Send email
   const info = await transporter.sendMail({
     from: process.env.EMAIL_USER,
-    name: 'Aven Labs',
+    name: 'Uplift Labs',
     to: toEmail,
     subject,
     html,

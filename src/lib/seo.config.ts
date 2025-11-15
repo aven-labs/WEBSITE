@@ -1,22 +1,22 @@
 export const defaultSEO = {
-  title: 'Aven | Your Personal AI Agent That Truly Understands You',
+  title: 'Uplift | Your Personal AI Agent That Truly Understands You',
   description:
-    'Aven is your thinking companion - an AI agent that lives on your devices, understands your context, and acts on your behalf. Experience true personalized AI assistance.',
-  canonical: 'https://helloaven.com',
+    'Uplift is your thinking companion - an AI agent that lives on your devices, understands your context, and acts on your behalf. Experience true personalized AI assistance.',
+  canonical: 'https://operatoruplift.com',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://helloaven.com',
-    site_name: 'Aven',
-    title: 'Aven | Your Personal AI Agent That Truly Understands You',
+    url: 'https://operatoruplift.com',
+    site_name: 'Uplift',
+    title: 'Uplift | Your Personal AI Agent That Truly Understands You',
     description:
-      'Aven is your thinking companion - an AI agent that lives on your devices, understands your context, and acts on your behalf.',
+      'Uplift is your thinking companion - an AI agent that lives on your devices, understands your context, and acts on your behalf.',
     images: [
       {
-        url: 'https://helloaven.com/og-image.png',
+        url: 'https://operatoruplift.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Aven - Personal AI Agent',
+        alt: 'Uplift - Personal AI Agent',
         type: 'image/png',
       },
     ],
@@ -34,7 +34,7 @@ export const defaultSEO = {
     },
     {
       name: 'author',
-      content: 'Aven Labs',
+      content: 'Uplift Labs',
     },
   ],
   additionalLinkTags: [

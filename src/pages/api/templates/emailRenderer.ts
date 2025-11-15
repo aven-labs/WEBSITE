@@ -243,7 +243,7 @@ export function renderEmailTemplate(
             </div>
             <div class="footer">
               <p>Best,</p>
-              <p>Aven Team</p>
+              <p>Uplift Team</p>
               <div class="social-section">
                 <p class="social-title">Join us</p>
                 <div class="social-links">

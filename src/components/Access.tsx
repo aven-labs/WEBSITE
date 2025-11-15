@@ -29,7 +29,7 @@ function Access() {
     <div className="bg-foreground/5 flex flex-col md:items-center justify-center gap-4 mx-auto container p-6 px-8 md:p-24 rounded-2xl mb-24">
       <H4 className="text-4xl md:text-6xl">Join Our Waitlist</H4>
       <Text className="text-xl md:mt-4">
-        Access Aven, and be the first to access Aven for free.
+        Access Uplift, and be the first to access Uplift for free.
       </Text>
       <div className="mt-4" />
       <AccessButton />

@@ -22,7 +22,7 @@ export const sampleAgents: AgentData[] = [
       "Content Generation",
       "Audience Targeting"
     ],
-    marketplace: "Aven Marketplace",
+    marketplace: "Uplift Marketplace",
     version: "2.1.0",
     icon: "📱"
   },
@@ -38,7 +38,7 @@ export const sampleAgents: AgentData[] = [
       "KPI Tracking",
       "Visualization"
     ],
-    marketplace: "Aven Marketplace",
+    marketplace: "Uplift Marketplace",
     version: "1.8.5",
     icon: "📊"
   },
@@ -54,7 +54,7 @@ export const sampleAgents: AgentData[] = [
       "Sentiment Analysis",
       "Multi-language Support"
     ],
-    marketplace: "Aven Marketplace",
+    marketplace: "Uplift Marketplace",
     version: "3.0.2",
     icon: "💬"
   },
@@ -70,7 +70,7 @@ export const sampleAgents: AgentData[] = [
       "CRM Integration",
       "Deal Forecasting"
     ],
-    marketplace: "Aven Marketplace",
+    marketplace: "Uplift Marketplace",
     version: "2.5.1",
     icon: "💼"
   },
@@ -86,7 +86,7 @@ export const sampleAgents: AgentData[] = [
       "Video Scripting",
       "Content Calendar"
     ],
-    marketplace: "Aven Marketplace",
+    marketplace: "Uplift Marketplace",
     version: "1.9.3",
     icon: "✍️"
   },
@@ -102,7 +102,7 @@ export const sampleAgents: AgentData[] = [
       "Trend Detection",
       "Report Synthesis"
     ],
-    marketplace: "Aven Marketplace",
+    marketplace: "Uplift Marketplace",
     version: "2.2.0",
     icon: "🔍"
   }

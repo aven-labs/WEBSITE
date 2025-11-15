@@ -23,7 +23,7 @@ const DeployBanner = () => {
             <br /> When we need you
           </H1>
           <Text className="text-lg text-muted mt-4">
-            Submit your agent to the Aven Marketplace. Join the growing
+            Submit your agent to the Uplift Marketplace. Join the growing
             community of AI builders
           </Text>
         </motion.div>

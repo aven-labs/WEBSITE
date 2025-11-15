@@ -19,7 +19,7 @@ export interface StoryStep {
 export const storySteps: StoryStep[] = [
   {
     request: {
-      text: "Aven, Play the song I played last night",
+      text: "Uplift, Play the song I played last night",
       position: { x: 15, y: 20 }
     },
     responses: [

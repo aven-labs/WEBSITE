@@ -6,7 +6,7 @@
 
   <!-- Home Page -->
   <url>
-    <loc>https://helloaven.com/</loc>
+    <loc>https://operatoruplift.com/</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Waitlist Page -->
   <url>
-    <loc>https://helloaven.com/waitlist</loc>
+    <loc>https://operatoruplift.com/waitlist</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://helloaven.com/contact</loc>
+    <loc>https://operatoruplift.com/contact</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -30,7 +30,7 @@
 
   <!-- Deploy Your Agent Page -->
   <url>
-    <loc>https://helloaven.com/deploy-your-agent</loc>
+    <loc>https://operatoruplift.com/deploy-your-agent</loc>
     <lastmod>2025-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

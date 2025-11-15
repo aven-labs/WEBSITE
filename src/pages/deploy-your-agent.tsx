@@ -5,10 +5,10 @@ import { DeployBanner, DeployForm } from "@/components/deploy-agent";
 import Footer from "@/components/Footer";
 
 function DeployYourAgent() {
-  const title = "Deploy Your AI Agent | Share Your Agent on Aven Marketplace";
-  const description = "Submit and deploy your AI agent to Aven's marketplace. Share your intelligent agent with thousands of users and monetize your creation. Join the AI agent revolution.";
-  const url = "https://helloaven.com/deploy-your-agent";
-  const image = "https://helloaven.com/og-image.png";
+  const title = "Deploy Your AI Agent | Share Your Agent on Uplift Marketplace";
+  const description = "Submit and deploy your AI agent to Uplift's marketplace. Share your intelligent agent with thousands of users and monetize your creation. Join the AI agent revolution.";
+  const url = "https://operatoruplift.com/deploy-your-agent";
+  const image = "https://operatoruplift.com/og-image.png";
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -23,7 +23,7 @@ function DeployYourAgent() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://helloaven.com"
+          "item": "https://operatoruplift.com"
         },
         {
           "@type": "ListItem",

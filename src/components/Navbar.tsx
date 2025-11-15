@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { H4, Text } from "./ui/typography";
-import data from "@/data/data.json";
 import Image from "next/image";
-
+import { navbar } from "@/data/data.json";
 const Navbar = () => {
   return (
     <nav className="w-screen z-1 relative">
@@ -10,10 +9,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link className="flex items-center gap-2" href="/">
             <Image alt="operator_uplift_logo" className="h-6 w-fit" src="/logo2.svg" width={100} height={100} />
-            <Text className="text-xl uppercase">OU</Text>
+            <Text className="text-xl uppercase">{navbar.brand}</Text>
           </Link>
           <Link href="/deploy-your-agent" className="underline">
-            {data.navbar.link}
+            {navbar.link}
           </Link>
         </div>
       </div>

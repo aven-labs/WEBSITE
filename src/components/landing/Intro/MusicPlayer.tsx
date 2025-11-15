@@ -71,7 +71,7 @@ export default function MusicPlayer({ isVisible = true }: MusicPlayerProps) {
         <img
           src={NCSImage.src}
           alt="Album cover"
-          className="w-16 max-md:absolute -top-10 -right-10 md:w-full h-fit rounded-lg object-cover"
+          className="w-16 max-md:absolute -top-10 -right-10 md:w-full h-fit rounded-lg object-contain"
         />
       </div>
       <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
