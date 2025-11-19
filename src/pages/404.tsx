@@ -9,7 +9,7 @@ import { Home, ArrowLeft } from "lucide-react";
 
 function Custom404() {
   const title = "404 - Page Not Found | Uplift";
-  const description = "The page you're looking for doesn't exist. Return to the Uplift homepage to continue your journey.";
+  const description = "The page you&apos;re looking for doesn&apos;t exist. Return to the Uplift homepage to continue your journey.";
   const url = "https://operatoruplift.com/404";
 
   return (
@@ -47,9 +47,9 @@ function Custom404() {
                 Page Not Found
               </H1>
               <Text className="text-lg text-muted-foreground mb-8">
-                The page you're looking for doesn't exist or has been moved.
+                The page you&apos;re looking for doesn&apos;t exist or has been moved.
                 <br />
-                Let's get you back on track.
+                Let&apos;s get you back on track.
               </Text>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
