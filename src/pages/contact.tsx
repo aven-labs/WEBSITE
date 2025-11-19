@@ -20,7 +20,7 @@ function Contact() {
       "@type": "Organization",
       "name": "Uplift Labs",
       "url": "https://operatoruplift.com",
-      "logo": "https://operatoruplift.com/logo.svg",
+      "logo": "https://operatoruplift.com/logo2.svg",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-8595771213",

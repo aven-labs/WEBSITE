@@ -23,8 +23,8 @@ function LandingPage() {
     "name": "Operator Uplift Inc.",
     "alternateName": "Uplift",
     "url": url,
-    "logo": "https://operatoruplift.com/logo.svg",
-    "image": "https://operatoruplift.com/logo.svg",
+    "logo": "https://operatoruplift.com/logo2.svg",
+    "image": "https://operatoruplift.com/logo2.svg",
     "sameAs": [
       "https://x.com/OperatorUplift",
       "https://www.linkedin.com/company/operatoruplift",
@@ -63,7 +63,7 @@ function LandingPage() {
       "url": "https://operatoruplift.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://operatoruplift.com/logo.svg"
+        "url": "https://operatoruplift.com/logo2.svg"
       }
     },
     "author": {
@@ -72,7 +72,7 @@ function LandingPage() {
       "url": "https://operatoruplift.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://operatoruplift.com/logo.svg"
+        "url": "https://operatoruplift.com/logo2.svg"
       }
     }
   };

@@ -41,11 +41,11 @@ export const defaultSEO = {
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      href: '/logo.svg',
+      href: '/logo2.svg',
     },
     {
       rel: 'apple-touch-icon',
-      href: '/logo.svg',
+      href: '/logo2.svg',
       sizes: '76x76',
     },
     {
